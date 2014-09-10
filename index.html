@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Synchronizing State in a Multi-Device World</title>
+
+  <meta name="description"
+        content="Today we find ourselves in a world where we no longer interact with one computer at time, but instead with many devices at the same time. As users, we expect all of our data to be available and up to date on every device. As developers we know this means we have to brave the complexity of synchronization and concurrency.">
+  <meta name="author" content="Jenny Tong">
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6U2ExB8yLDc7RiGPYK3C3yIzDPpyFJE0&sensor=false"></script>
+  <script src="https://cdn.firebase.com/libs/geofire/3.0.2/geofire.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+
+  <style>
+    .slides section img {
+      background: none;
+      box-shadow: none;
+      border: none;
+    }
+
+    ul.multicol {
+      width: 1300px;
+    }
+
+    ul.multicol li {
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+    }
+
+    ul.multicol li li {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+
+    .reveal section img {
+      max-height: 65%;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+      <h1>Synchronizing State</h1>
+
+      <h3>in a Multi-Device World</h3>
+
+      <p>
+        <small>Created by <a href="https://mimming.com">Jenny Tong</a> / <a href="https://mimming.com">mimming.com</a></small>
+      </p>
+    </section>
+
+    <section data-markdown>
+      <script type="text/template">
+        ## Agenda
+
+        - What is realtime data
+        - Why it's hard
+        - How Firebase solves it
+      </script>
+    </section>
+
+    <section>
+      <h1>THE END</h1>
+      <br/>
+
+      <h3>Questions?</h3>
+      <br/><br/>
+
+      <p>Slides: <a href="https://mimming.com/presos/synchronizing-state">https://mimming.com/presos/synchronizing-state</a></p>
+
+      <p>Code: <a href="https://github.com/mimming/synchronizing-state">https://github.com/mimming/synchronizing-state</a></p>
+
+      <p>
+        <small>Created by <a href="https://mimming.com">Jenny Tong</a> / <a href="https://mimming.com">mimming.com</a></small>
+      </p>
+
+    </section>
+
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: "night", // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      } },
+      { src: 'plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      } },
+      { src: 'plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+        hljs.initHighlightingOnLoad();
+      } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+        return !!document.body.classList;
+      } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function () {
+        return !!document.body.classList;
+      } }
+    ]
+  });
+
+  Reveal.addEventListener('slidechanged', function (event) {
+    if (event.indexh === 3 && event.indexv === 1) {
+      transitmapstart()
+    }
+  });
+
+</script>
+
+</body>
+</html>
