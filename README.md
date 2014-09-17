@@ -8,8 +8,6 @@ Modern cloud development platforms provide ways to deal with this challenge. In 
 - [Women Hacking Glass](http://www.meetup.com/Women-Who-Code-SF/events/182497842/?oc=evam) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/whg-2014-09)
 - [GGDevCon](http://www.ggdevcon.com/classes#SynchronizingStateinaMultiDeviceWorld)
 
-It's about dealing with shared state and many different devices.
-
 ## About the deck
 
 Forked from the wonderful [reveal.js](https://github.com/hakimel/reveal.js)
