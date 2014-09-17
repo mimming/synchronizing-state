@@ -1,6 +1,14 @@
 # Synchronizing State in a Multi-Device World
 
-Here's the presentation that [Jenny Tong](https://mimming.com) is giving at [GGDevCon](http://www.ggdevcon.com/classes#SynchronizingStateinaMultiDeviceWorld) . It's about dealing with shared state and many different devices.
+Today we find ourselves in a world where we no longer interact with one computer at time, but instead with many devices at the same time. As users, we expect all of our data to be available and up to date on every device. As developers we know this means we have to brave the complexity of synchronization and concurrency.
+
+Modern cloud development platforms provide ways to deal with this challenge. In this class, Jenny Tong shows you how to use some of these technologies to make your multi-device, multi-platform development easier.
+
+## Presented at
+- [Women Hacking Glass](http://www.meetup.com/Women-Who-Code-SF/events/182497842/?oc=evam) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/whg-2014-09)
+- [GGDevCon](http://www.ggdevcon.com/classes#SynchronizingStateinaMultiDeviceWorld)
+
+It's about dealing with shared state and many different devices.
 
 ## About the deck
 
