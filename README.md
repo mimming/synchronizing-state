@@ -4,6 +4,8 @@ Today we find ourselves in a world where we no longer interact with one computer
 
 Modern cloud development platforms provide ways to deal with this challenge. In this class, Jenny Tong shows you how to use some of these technologies to make your multi-device, multi-platform development easier.
 
+Slides live on [mimming.com](https://mimming.com/presos/synchronizing-state/)
+
 ## Presented at
 - [Women Hacking Glass](http://www.meetup.com/Women-Who-Code-SF/events/182497842/?oc=evam) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/whg-2014-09)
 - [GGDevCon](http://www.ggdevcon.com/classes#SynchronizingStateinaMultiDeviceWorld)
