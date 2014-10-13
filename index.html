@@ -40,6 +40,8 @@
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
 
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
 
   <style>
     .slides section img {
@@ -76,15 +78,7 @@
 
   <!-- Any section element inside of this container is displayed as a slide -->
   <div class="slides">
-  <section>
-    <h1>Welcome Women Hacking Glass</h1>
-<br/>
-    <br/>
-    <img src="img/firebase-logo.png">
-
-  </section>
-
-  <section>
+    <section>
       <h1>Synchronizing State</h1>
 
       <h3>in a Multi-Device World</h3>
@@ -92,6 +86,15 @@
       <p>
         <small>Created by <a href="https://mimming.com">Jenny Tong</a> / <a href="https://mimming.com">mimming.com</a></small>
       </p>
+    </section>
+
+    <section>
+      <h2>Hi! I'm Jenny.</h2>
+
+      <p>I'm a Developer Advocate at &nbsp;<img style="margin-bottom: -0.2em; height: 1.2em;" src="img/firebase-logo.png"></p>
+      <br/>
+
+      <p>I like to help people cause trouble with code.</p>
     </section>
 
     <section data-markdown>
@@ -227,14 +230,24 @@
             case "orange":
               $("#fruit-type").removeClass("apple");
               $("#fruit-type").addClass("orange");
+              $("#fruit-type").removeClass("strawberry");
+
               break;
             case "apple":
               $("#fruit-type").removeClass("orange");
               $("#fruit-type").addClass("apple");
+              $("#fruit-type").removeClass("strawberry");
+
               break;
+            case "strawberry":
+              $("#fruit-type").addClass("strawberry");
+              $("#fruit-type").removeClass("apple");
+              $("#fruit-type").removeClass("orange");
+
             default:
               $("#fruit-type").removeClass("apple");
               $("#fruit-type").removeClass("orange");
+              $("#fruit-type").removeClass("strawberry");
           }
         });
       </script>
@@ -252,6 +265,11 @@
           background: url(img/orange.png) no-repeat left;
           background-size: contain;
         }
+        #fruit-type.strawberry {
+         background: url(img/strawberry.png) no-repeat left;
+         background-size: contain;
+       }
+
       </style>
       <h2>Your fruit is an</h2>
       <h1 id="fruit-type">None</h1>
@@ -461,8 +479,6 @@ protected void onResume() {
 
 </div>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.min.js"></script>
 
 <script>
   // Full list of configuration options available here:
@@ -472,6 +488,9 @@ protected void onResume() {
     progress: true,
     history: true,
     center: true,
+    // Bounds for smallest/largest possible scale to apply to content
+    minScale: 0.2,
+    maxScale: 4.0,
 
     theme: "night", // available themes are in /css/theme
     transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
