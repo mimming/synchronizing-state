@@ -35,6 +35,10 @@
   <script src="https://cdn.firebase.com/libs/geofire/3.0.2/geofire.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6U2ExB8yLDc7RiGPYK3C3yIzDPpyFJE0&sensor=false"></script>
+  <script src="js/transit.js"></script>
+
 
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
@@ -44,14 +48,28 @@
   <script src="js/reveal.min.js"></script>
 
   <style>
+    .openlayers-map img {
+      margin: 0;
+    }
+
+    #map-canvas img {
+      max-width: none;
+      max-height: none;
+      box-shadow: none;
+    }
+
+    .slides section {
+      font-size: 115%;
+    }
+
     .slides section img {
       background: none;
       box-shadow: none;
       border: none;
     }
 
-    ul.multicol {
-      width: 1300px;
+    .reveal pre code {
+      font-size: 120%;
     }
 
     ul.multicol li {
@@ -154,12 +172,31 @@
       </span>
     </section>
 
+    <section>
+      <h2>Realtime is</h2>
+
+      <h3>Where your bus is</h3>
+
+      <div id="map-canvas" style="width: 100%; height: 600px"></div>
+    </section>
+    
+    <section>
+      <h2>Realtime is</h2>
+
+      <h3>Collaborative drawing</h3>
+
+      <iframe style="background-color: #fff; overflow: hidden;" scrolling="no"
+              src="https://wb-mobile-demo.firebaseapp.com/#-JgDwv_wX9fiivJF7ALg" width="800" height="400"></iframe>
+
+      <br/><a href="http://tinyurl.com/FireDraw">http://tinyurl.com/FireDraw</a>
+    </section>
+
 
     <section data-markdown>
       <script type="text/template">
         ## Trendy Startup's Needs
 
-        - Focus on writing killer apps
+        - Focus on writing killer real-time apps
         - Support for Android, iOS, and Web
         - Some way on to the Internet of Things bandwagon
       </script>
@@ -206,10 +243,15 @@
       <img class="fragment" style="height: 15%; width: 15%;" src="img/green-happy.png">
 
     </section>
+    
+    <section data-markdown>
+      <script type="text/template">
+        # The Trendy Startup Pitch
+      </script>
+    </section>
 
     <section>
       <h2>Realtime Fruit Detector</h2>
-      <h4>Demo</h4>
       <br>
       <script>
         var fruitRef = new Firebase("https://fruit.firebaseio-demo.com/");
@@ -225,7 +267,6 @@
               $("#fruit-type").removeClass("orange");
               $("#fruit-type").addClass("apple");
               break;
-
             default:
               $("#fruit-type").removeClass("apple");
               $("#fruit-type").removeClass("orange");
@@ -248,22 +289,28 @@
         }
 
       </style>
-      <h2>Your fruit is an</h2>
-      <h1 id="fruit-type">None</h1>
+      <h3>Your fruit is an</h3>
+      <h2 style="width: 100%; height: 400px;" id="fruit-type">None</h2>
     </section>
-
+    
     <section>
       <h2>Realtime Fruit Detector</h2>
       <h4>How it works</h4>
       <img src="img/fruit-detector.png">
     </section>
+
     <section>
-      <h2>Realtime Fruit Detector</h2>
-      <h4>Device Code</h4>
+      <h2>How it works</h2>
+      <h4>A primitive NodeBot</h4>
+      <br/>
+      <img src="img/anatomy.jpg">
+
+    </section>
+
+    <section>
+      <h2>Device Code</h2>
       <br>
       <pre><code data-trim class="javascript" style="font-size: 22px;">
-//JavaScript
-
 var five = require("johnny-five");
 var Firebase = require("firebase");
 
@@ -286,12 +333,9 @@ board.on("ready", function() {
 
     </section>
     <section>
-      <h2>Realtime Fruit Detector</h2>
-      <h4>Device code</h4>
+      <h2>Device code</h2>
       <br>
       <pre><code data-trim class="javascript" style="font-size: 22px;">
-  //JavaScript
-  ...
   // When the voltage changes, do math
   fruit.scale([0, 1024]).on("data", function() {
     var voltage = this.raw / 1024 * 5;
@@ -312,8 +356,7 @@ board.on("ready", function() {
 
     </section>
     <section>
-      <h2>Realtime Fruit Detector</h2>
-      <h4>Web client code</h4>
+      <h2>Web client code</h2>
       <br>
       <pre><code data-trim class="javascript" style="font-size: 22px;">
 // Connect to Firebase
@@ -329,8 +372,7 @@ fruitRef.on("value", function(snapshot) {
     </section>
 
     <section>
-      <h2>Realtime Fruit Detector</h2>
-      <h3>iOS Swift code</h3>
+      <h2>iOS Swift code</h2>
       <br>
       <pre><code data-trim class="swift" style="font-size: 22px;">
 let ref = Firebase(url:"https://fruit.firebaseio-demo.com/")
@@ -352,15 +394,11 @@ ref.observeEventType(.Value, withBlock: {
     </section>
 
     <section>
-      <h2>Realtime Fruit Detector</h2>
-      <h3>Android code</h3>
+      <h2>Android code</h2>
       <br>
       <pre><code data-trim class="java" style="font-size: 22px;">
 protected void onResume() {
-  ...
-  // Connect to Firebase
-  Firebase ref =
-    new Firebase("https://fruit.firebaseio-demo.com/");
+  Firebase ref = new Firebase("https://fruit.firebaseio-demo.com/");
 
   // Find the ImageView
   final ImageView fruitImageView =
@@ -475,8 +513,8 @@ protected void onResume() {
   });
 
   Reveal.addEventListener('slidechanged', function (event) {
-    if (event.indexh === 3 && event.indexv === 1) {
-//      transitmapstart()
+    if (event.indexh === 7) {
+      transitmapstart()
     }
   });
 
