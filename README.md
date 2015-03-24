@@ -9,6 +9,7 @@ Slides live on [mimming.com](https://mimming.com/presos/synchronizing-state/)
 ## Presented at
 - [Women Hacking Glass](http://www.meetup.com/Women-Who-Code-SF/events/182497842/?oc=evam) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/whg-2014-09)
 - [GGDevCon](http://www.ggdevcon.com/classes#SynchronizingStateinaMultiDeviceWorld) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/ggdevcon-2014-10)
+- [DevNexus](https://devnexus.com/s/presentations#id-4197) - [slides](https://github.com/mimming/synchronizing-state/releases/tag/devnexus-2015-03-12)
 
 ## About the deck
 
